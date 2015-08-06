@@ -72,7 +72,6 @@ set nobackup
 " 关闭交换文件
 set noswapfile
 
-
 "create undo file
 if has('persistent_undo')
   set undolevels=1000         " How many undos
@@ -297,6 +296,10 @@ nnoremap k gk
 nnoremap gk k
 nnoremap j gj
 nnoremap gj j
+
+"空白符显示
+set list
+set listchars=tab:▸\ ,trail:▫
 
 " F1 - F6 设置
 " F1 废弃这个键,防止调出系统帮助
@@ -565,8 +568,8 @@ endif
 " theme主题
 set background=dark
 set t_Co=256
-colorscheme solarized
-" colorscheme molokai
+" colorscheme solarized
+colorscheme molokai
 " colorscheme Tomorrow-Night
 " colorscheme Tomorrow-Night-Bright
 " colorscheme desert

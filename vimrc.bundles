@@ -80,7 +80,7 @@ nnoremap <Leader>s :call ToggleErrors()<cr>
 " 代码自动补全
 "迄今为止用到的最好的自动VIM自动补全插件
 "重启 :YcmRestartServer
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 "youcompleteme  默认tab  s-tab 和自动补全冲突
 "let g:ycm_key_list_select_completion=['<c-n>']
 let g:ycm_key_list_select_completion = ['<Down>']
@@ -102,13 +102,13 @@ nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 
 " 引入，可以补全系统，以及python的第三方包 针对新老版本YCM做了兼容
 " old version
-if !empty(glob("~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"))
-    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"
-endif
-" new version
-if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
-    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-endif
+"if !empty(glob("~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"))
+"    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"
+"endif
+"" new version
+"if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
+"    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+"endif
 
 " 直接触发自动补全 insert模式下
 " let g:ycm_key_invoke_completion = '<C-Space>'
@@ -170,9 +170,10 @@ let g:closetag_html_style=1
 " ################### 快速编码 ###################
 
 " 快速注释
-Bundle 'scrooloose/nerdcommenter'
-let g:NERDSpaceDelims=1
+"Bundle 'scrooloose/nerdcommenter'
+"let g:NERDSpaceDelims=1
 
+Bundle 'tpope/vim-commentary'
 
 " 快速加入修改环绕字符
 Bundle 'tpope/vim-surround'
@@ -401,6 +402,7 @@ Bundle 'chriskempson/vim-tomorrow-theme'
 "目录导航
 Bundle 'scrooloose/nerdtree'
 map <leader>n :NERDTreeToggle<CR>
+map <leader>d :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 "close vim if the only window left open is a NERDTree
@@ -422,6 +424,7 @@ let g:nerdtree_tabs_synchronize_focus=0
 " Vim Workspace Controller
 Bundle "szw/vim-ctrlspace"
 let g:airline_exclude_preview = 1
+let g:ctrlspace_default_mapping_key="<leader>c"
 hi CtrlSpaceSelected guifg=#586e75 guibg=#eee8d5 guisp=#839496 gui=reverse,bold ctermfg=10 ctermbg=7 cterm=reverse,bold
 hi CtrlSpaceNormal   guifg=#839496 guibg=#021B25 guisp=#839496 gui=NONE ctermfg=12 ctermbg=0 cterm=NONE
 hi CtrlSpaceSearch   guifg=#cb4b16 guibg=NONE gui=bold ctermfg=9 ctermbg=NONE term=bold cterm=bold
@@ -448,6 +451,7 @@ hi CtrlSpaceStatus   guifg=#839496 guibg=#002b36 gui=reverse term=reverse cterm=
 " 标签导航
 Bundle 'majutsushi/tagbar'
 nmap <F9> :TagbarToggle<CR>
+nmap <leader>] :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 " for ruby
 let g:tagbar_type_ruby = {
